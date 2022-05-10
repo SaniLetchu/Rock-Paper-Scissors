@@ -13,14 +13,14 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     function win(player, computer) {
-        return `You Win! ${player} beats ${computer}`;
+        return [`You Win! ${player} beats ${computer}`, 1];
     }
     function lose(player, computer) {
-        return `You Lose! ${computer} beats ${player}`;
+        return [`You Lose! ${computer} beats ${player}`, 0];
     }
     let playerchoice = playerSelection.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
     if(playerchoice == computerSelection) {
-        return "Draw!";
+        return ["Draw!", 2];
     }
     if(playerchoice == "Rock") {
         if(computerSelection == "Scissors") {
@@ -48,6 +48,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerinput = window.prompt("Enter Rock Paper or Scissors");
+        let roundResult = playRound(playerinput, computerPlay());
+        console.log(roundResult[0]);
+     }
+}
+game();
