@@ -8,3 +8,14 @@ button {
     height: 50px;
     width: 75px;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+h1 {
+    font-size: 24px;
+}
+p {
+    font-size: 20px;
+}
