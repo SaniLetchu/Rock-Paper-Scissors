@@ -55,4 +55,74 @@ function game() {
         console.log(roundResult[0]);
      }
 }
-game();
+
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+let computerPoints = 0;
+let playerPoints = 0;
+
+const container = document.querySelector('.container');
+
+const pPlayer = document.createElement('p');
+const pComputer = document.createElement('p');
+const h1Text = document.createElement('h1');
+
+container.appendChild(pPlayer);
+
+container.appendChild(h1Text);
+
+container.appendChild(pComputer);
+
+h1Text.textContent = 'Game of Rock, Paper and Scissors. First to reach 5 points will win!';
+
+pPlayer.textContent = 'Player: 0';
+pComputer.textContent = 'Computer: 0';
+
+function game(roundResult) {
+    let roundText = roundResult[0];
+        let roundResultNumber = roundResult[1];
+        h1Text.textContent = roundText;
+        if(roundResultNumber == 0) {
+            computerPoints +=1;
+        }
+        else if(roundResultNumber == 1) {
+            playerPoints +=1;
+        }
+        pPlayer.textContent = `Player: ${playerPoints}`;
+        pComputer.textContent = `Computer: ${computerPoints}`;
+        if(playerPoints == 5) {
+            h1Text.textContent = 'Match point! You win!';
+        }
+        if(computerPoints == 5) {
+            h1Text.textContent = 'Match point! You lose!';
+        }
+}
+
+rock.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Rock', computerPlay());
+        game(roundResult);
+
+
+    }
+    
+})
+
+paper.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Paper', computerPlay());
+        game(roundResult);
+    }
+    
+})
+
+scissors.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Scissors', computerPlay());
+        game(roundResult);
+    }
+    
+})
