@@ -55,4 +55,32 @@ function game() {
         console.log(roundResult[0]);
      }
 }
-game();
+
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+let computerPoints = 0;
+let playerPoints = 0;
+
+rock.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Rock', computerPlay());
+    }
+    
+})
+
+paper.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Paper', computerPlay());
+    }
+    
+})
+
+scissors.addEventListener('click', () => {
+    if(computerPoints != 5 && playerPoints != 5) {
+        let roundResult = playRound('Scissors', computerPlay());
+    }
+    
+})
